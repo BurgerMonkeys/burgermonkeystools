@@ -8,6 +8,10 @@ namespace MonkeyTools
         private readonly Stopwatch _stopwatch;
         private readonly string _tag;
 
+        /// <summary>
+        /// Class used to monitor the time elapsed 
+        /// </summary>
+        /// <param name="tag">Paramter used to identification time in console</param>
         public TimerMonitor(string tag)
         {
             _tag = tag;
