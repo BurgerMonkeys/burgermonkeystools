@@ -21,5 +21,6 @@
   <ItemGroup>
     <Folder Include="Tools\" />
     <Folder Include="Converters\" />
+    <Folder Include="TimerMonitor\" />
   </ItemGroup>
 </Project>
