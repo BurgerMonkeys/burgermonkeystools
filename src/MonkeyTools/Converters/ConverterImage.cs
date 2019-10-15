@@ -3,7 +3,7 @@ using System.IO;
 using System.Net;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace MonkeyTools.Tools.Converters
+namespace MonkeyTools
 {
     public static partial class Converter
     {

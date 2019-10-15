@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MonkeyTools.Tools.Converters
+namespace MonkeyTools
 {
     public static partial class Converter
     {

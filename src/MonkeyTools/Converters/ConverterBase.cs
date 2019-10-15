@@ -1,6 +1,6 @@
 using System;
 
-namespace MonkeyTools.Tools.Converters
+namespace MonkeyTools
 {
     public static partial class Converter
     {
