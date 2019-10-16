@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonkeyTools", "MonkeyTools\MonkeyTools.csproj", "{75BA7296-16EA-4D7A-BC70-3F70442F107A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonkeyTools.Tests", "MonkeyTools.Tests\MonkeyTools.Tests.csproj", "{7082F425-793A-4989-B15B-AE555C17F2DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{75BA7296-16EA-4D7A-BC70-3F70442F107A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75BA7296-16EA-4D7A-BC70-3F70442F107A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75BA7296-16EA-4D7A-BC70-3F70442F107A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7082F425-793A-4989-B15B-AE555C17F2DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7082F425-793A-4989-B15B-AE555C17F2DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7082F425-793A-4989-B15B-AE555C17F2DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7082F425-793A-4989-B15B-AE555C17F2DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
