@@ -21,14 +21,12 @@ namespace MonkeyTools
         /// <summary>
         /// Method that concatenates any object type to string
         /// </summary>
-        /// <typeparam name="t"></typeparam>
         /// <param name="items">Items of any kind</param>
-        /// <param name="valueFunction"></param>
+        /// <param name="valueFunction">Function used to be concatenated</param>
         /// <param name="separator">Concatenation Separator (Optional), by default is (,)</param>
-        /// <param name="format"></param>
+        /// <param name="format">Format or not the concatenation</param>
         /// <param name="defaultValue">Default value if there is nothing in the object array</param>
-        /// <param name="distinct"></param>
-        /// <returns></returns>
+        /// <param name="distinct">Do not repeat value</param>
         public static string ConcatAny<t>(this IEnumerable<t> items, Func<t, object> valueFunction, string separator = ", ", string format = null, string defaultValue = null, bool distinct = true)
         {
             if (items == null || !items.Any())

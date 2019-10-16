@@ -11,7 +11,7 @@ namespace MonkeyTools
         /// <param name="seconds">seconds value</param>
         /// <returns>An analog clock angle</returns>
 
-        public static Double AngleToDecimal(Object hours, Object minutes, Object seconds)
+        public static Double AngleToDecimal(object hours, object minutes, object seconds)
         {
             var n1 = Convert.ToInt32(hours);
             var n2 = Convert.ToInt32(minutes);
@@ -34,7 +34,7 @@ namespace MonkeyTools
         /// </summary>
         /// <param name="value">Any object of the primitive type</param>
         /// <returns></returns>
-        public static string AngleToString(Object value)
+        public static string AngleToString(object value)
         {
             if (value == null)
                 return null;
