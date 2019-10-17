@@ -101,6 +101,5 @@ namespace MonkeyTools
             return "application/octet-stream";
         }
 
-        public static string GetGuid() => Guid.NewGuid().ToString();
     }
 }

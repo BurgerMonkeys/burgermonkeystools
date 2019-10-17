@@ -20,5 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tools\" />
+    <Folder Include="TimerMonitor\" />
+    <Folder Include="Generators\" />
   </ItemGroup>
 </Project>
