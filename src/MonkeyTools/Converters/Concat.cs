@@ -15,6 +15,9 @@ namespace MonkeyTools
         /// <returns>A string concat with separator ex."aaa,fff,ggg,hhh"</returns>
         public static string ArrayStringToString (string[] array, string separator = ",")
         {
+            if (array == null || !array.Any())
+                throw new ArgumentException("Array null or empty");
+
             return string.Join (separator, array);
         }
 

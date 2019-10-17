@@ -48,8 +48,15 @@ namespace MonkeyTools
         /// <returns>Returns the date formatted according to culture. ex.10/15/2019</returns>
         public static string DateTimeOffSetToDateFormat (DateTimeOffset date, string culture = "pt-br")
         {
-            CultureInfo format = new CultureInfo (culture);
-            return date.ToString ("d", format);
+            try
+            {
+                CultureInfo format = new CultureInfo (culture);
+                return date.ToString ("d", format);
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("Culture invalid");
+            }
         }
     }
 }

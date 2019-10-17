@@ -12,20 +12,19 @@ namespace MonkeyTools
         /// </summary>
         /// <param name="image">A byte array</param>
         /// <returns>A string base64</returns>
-        public static string ByteArrayImageToBase64 (byte[] image)
+        public static string ByteArrayImageToBase64(byte[] image)
         {
             if (image == null)
-                return null;
+               throw new ArgumentException("array byte null");
 
             try
             {
-                var image64 = Convert.ToBase64String (image);
+                var image64 = Convert.ToBase64String(image);
                 return image64;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e.Message);
-                return null;
+                throw new ArgumentException("Invalid byte array");
             }
         }
 
@@ -35,28 +34,23 @@ namespace MonkeyTools
         /// <param name="url">A valid image URL</param>
         /// <param name="toWebView">(Optional) indicates if base64 will be used in a webview</param>
         /// <returns>A string with base64 image</returns>
-        public static string UrlImageToBase64 (string url, bool toWebView = false)
+        public static string UrlImageToBase64(string url, bool toWebView = false)
         {
-            if (string.IsNullOrWhiteSpace (url))
-                return null;
+            if (string.IsNullOrWhiteSpace(url))
+                throw new ArgumentException("url null");
 
             try
             {
-                var image64 = "";
                 var _byte = GetImage(url);
-                if (_byte == null)
-                   return "URL not valid";
-
-                image64 = !toWebView
+                var image64 = !toWebView
                     ? Convert.ToBase64String(_byte, 0, _byte.Length)
                     : "data:image/jpeg;base64," + Convert.ToBase64String(_byte, 0, _byte.Length);
 
                 return image64;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e.Message);
-                return null;
+                throw new ArgumentException("Invalid Url");
             }
         }
 
@@ -65,20 +59,19 @@ namespace MonkeyTools
         /// </summary>
         /// <param name="base64Image">A base64 image</param>
         /// <returns>A byte array image</returns>
-        public static byte[] Base64ToByteArray (string base64Image)
+        public static byte[] Base64ToByteArray(string base64Image)
         {
-            if (string.IsNullOrWhiteSpace (base64Image))
-                return null;
+            if (string.IsNullOrWhiteSpace(base64Image))
+                throw new ArgumentException("string null");
 
             try
             {
-                var img = Convert.FromBase64String (base64Image);
+                var img = Convert.FromBase64String(base64Image);
                 return img;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e.Message);
-                return null;
+                throw new ArgumentException("Cannot convert image to base64, string invalid");
             }
         }
 
@@ -88,34 +81,33 @@ namespace MonkeyTools
         /// <param name="url">url image valid</param>
         /// <returns>A array of bytes</returns>
 
-        private static byte[] GetImage (string url)
+        private static byte[] GetImage(string url)
         {
-            if (string.IsNullOrWhiteSpace (url))
-                return null;
+            if (string.IsNullOrWhiteSpace(url))
+                throw new ArgumentException("string null");
 
             byte[] buf;
             try
             {
-                var myProxy = new WebProxy ();
-                var req = (HttpWebRequest) WebRequest.Create (url);
+                var myProxy = new WebProxy();
+                var req = (HttpWebRequest)WebRequest.Create(url);
 
-                var response = (HttpWebResponse) req.GetResponse ();
-                var stream = response.GetResponseStream ();
+                var response = (HttpWebResponse)req.GetResponse();
+                var stream = response.GetResponseStream();
 
-                using (var br = new BinaryReader (stream))
+                using (var br = new BinaryReader(stream))
                 {
-                    var len = (int) (response.ContentLength);
-                    buf = br.ReadBytes (len);
-                    br.Close ();
+                    var len = (int)(response.ContentLength);
+                    buf = br.ReadBytes(len);
+                    br.Close();
                 }
 
-                stream.Close ();
-                response.Close ();
+                stream.Close();
+                response.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e.Message);
-                buf = null;
+                throw new ArgumentException("Invalid url");
             }
 
             return (buf);
