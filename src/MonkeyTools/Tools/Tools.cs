@@ -26,22 +26,15 @@ namespace MonkeyTools
             return builder.ToString();
         }
 
-        public static string RemoveAccents(string stringValue)
-        {
-            if (string.IsNullOrEmpty(stringValue))
-                return stringValue;
+        public static string RemoveAccents(this string stringValue) =>
+            new string(text
+                .Normalize(NormalizationForm.FormD)
+                .ToCharArray()
+                .Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                .ToArray());
+        
 
-            string lst1 = "áéíóúàèìòùäëïöüãõâêîôûçñÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÃÕÂÊÎÔÛÇÑ";
-            string lst2 = "aeiouaeiouaeiouaoaeioucnAEIOUAEIOUAEIOUAOAEIOUCN";
-            return ReplaceAll(stringValue, lst1.ToCharArray().ToList(), lst2.ToCharArray().ToList());
-        }
-
-        public static string RemoveCase(string stringValue)
-        {
-            if (string.IsNullOrWhiteSpace(stringValue))
-                return string.Empty;
-            return RemoveAccents(stringValue.ToLower());
-        }
+        public static string IgnoreCaseSensitiveAndAccents(this string stringValue) => stringValue.ToLower().RemoveAccents();
 
         public static string Concat<t>(this IEnumerable<t> items, Func<t, object> valueFunction, string separator = ", ", string format = null, string defaultValue = null, bool distinct = true)
         {
@@ -102,5 +95,10 @@ namespace MonkeyTools
         }
 
         public static string GetGuid() => Guid.NewGuid().ToString();
+
+        public static string RemoveSpecialCharacters(this string text) =>
+             !string.IsNullOrEmpty(text) ?
+                    Regex.Replace(text, "[^\\d]+", "", RegexOptions.None) :
+                    string.Empty;
     }
 }
