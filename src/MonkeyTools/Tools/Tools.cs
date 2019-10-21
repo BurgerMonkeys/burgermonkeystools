@@ -43,21 +43,6 @@ namespace MonkeyTools
             return RemoveAccents(stringValue.ToLower());
         }
 
-        public static string Concat<t>(this IEnumerable<t> items, Func<t, object> valueFunction, string separator = ", ", string format = null, string defaultValue = null, bool distinct = true)
-        {
-            if (items == null || !items.Any())
-                return defaultValue;
-            var newlst = (distinct ? items.Select(item => valueFunction(item)).Distinct() : items.Select(item => valueFunction(item))).ToList();
-            var str = new StringBuilder();
-            foreach (var value in newlst)
-            {
-                var valuestr = Convert.ToString(value);
-                if (!string.IsNullOrEmpty(valuestr))
-                    str.Append(string.IsNullOrEmpty(format) ? valuestr + separator : string.Format("{0:" + format + "}", value) + separator);
-            }
-            return string.IsNullOrEmpty(str.ToString()) ? null : str.Remove(str.Length - separator.Length, separator.Length).ToString();
-        }
-
         public static string GetContentType(string filename, bool isExtension = false)
         {
             var ext = isExtension ? filename : Path.GetExtension(filename);
