@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MonkeyTools
+namespace BurgerMonkeys.Tools
 {
     public static partial class Converter
     {
@@ -8,8 +8,7 @@ namespace MonkeyTools
         /// </summary>
         /// <param name="value">string formated 120°10'20"</param>
         /// <returns>Decimal value</returns>
-
-        public static Double AngleToDecimal(string value)
+        public static double AngleToDecimal(this string value)
         {
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException("string is null our empty");
@@ -75,17 +74,14 @@ namespace MonkeyTools
             }
         }
 
-        static string[] GetTimeArray(string value)
-        {
-            return value.Split("'");
-        }
+        static string[] GetTimeArray(string value) => value.Split("'");
 
         /// <summary>
         /// Method Converts a Primitive Object to Angles string
         /// </summary>
         /// <param name="value">Any object of the primitive type</param>
         /// <returns></returns>
-        public static string AngleToString(object value)
+        public static string AngleToString(this object value)
         {
             if (value == null)
                 throw new ArgumentException("object null");

@@ -1,9 +1,8 @@
 using System;
 using System.IO;
 using System.Net;
-using static System.Net.Mime.MediaTypeNames;
 
-namespace MonkeyTools
+namespace BurgerMonkeys.Tools
 {
     public static partial class Converter
     {
@@ -12,15 +11,14 @@ namespace MonkeyTools
         /// </summary>
         /// <param name="image">A byte array</param>
         /// <returns>A string base64</returns>
-        public static string ByteArrayImageToBase64(byte[] image)
+        public static string ByteArrayImageToBase64(this byte[] image)
         {
             if (image == null)
                throw new ArgumentException("array byte null");
 
             try
             {
-                var image64 = Convert.ToBase64String(image);
-                return image64;
+                return Convert.ToBase64String(image);
             }
             catch (Exception)
             {
@@ -34,7 +32,7 @@ namespace MonkeyTools
         /// <param name="url">A valid image URL</param>
         /// <param name="toWebView">(Optional) indicates if base64 will be used in a webview</param>
         /// <returns>A string with base64 image</returns>
-        public static string UrlImageToBase64(string url, bool toWebView = false)
+        public static string UrlImageToBase64(this string url, bool toWebView = false)
         {
             if (string.IsNullOrWhiteSpace(url))
                 throw new ArgumentException("url null");
@@ -59,7 +57,7 @@ namespace MonkeyTools
         /// </summary>
         /// <param name="base64Image">A base64 image</param>
         /// <returns>A byte array image</returns>
-        public static byte[] Base64ToByteArray(string base64Image)
+        public static byte[] Base64ToByteArray(this string base64Image)
         {
             if (string.IsNullOrWhiteSpace(base64Image))
                 throw new ArgumentException("string null");
@@ -81,12 +79,12 @@ namespace MonkeyTools
         /// <param name="url">url image valid</param>
         /// <returns>A array of bytes</returns>
 
-        private static byte[] GetImage(string url)
+        private static byte[] GetImage(this string url)
         {
             if (string.IsNullOrWhiteSpace(url))
                 throw new ArgumentException("string null");
 
-            byte[] buf;
+            byte[] buffer;
             try
             {
                 var myProxy = new WebProxy();
@@ -98,7 +96,7 @@ namespace MonkeyTools
                 using (var br = new BinaryReader(stream))
                 {
                     var len = (int)(response.ContentLength);
-                    buf = br.ReadBytes(len);
+                    buffer = br.ReadBytes(len);
                     br.Close();
                 }
 
@@ -110,7 +108,7 @@ namespace MonkeyTools
                 throw new ArgumentException("Invalid url");
             }
 
-            return (buf);
+            return buffer;
         }
     }
 }

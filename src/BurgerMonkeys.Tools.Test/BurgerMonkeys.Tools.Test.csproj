@@ -14,6 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MonkeyTools\MonkeyTools.csproj" />
+    <ProjectReference Include="..\BurgerMonkeys.Tools\BurgerMonkeys.Tools.csproj" />
   </ItemGroup>
 </Project>

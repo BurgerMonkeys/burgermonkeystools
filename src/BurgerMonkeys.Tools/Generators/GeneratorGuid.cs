@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MonkeyTools
+namespace BurgerMonkeys.Tools
 {
     public static partial class Generator
     {

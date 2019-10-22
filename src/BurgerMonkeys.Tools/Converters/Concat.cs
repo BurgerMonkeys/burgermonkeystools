@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MonkeyTools
+namespace BurgerMonkeys.Tools
 {
     public static partial class Converter
     {
@@ -13,7 +13,7 @@ namespace MonkeyTools
         /// <param name="array">String array to concat</param>
         /// <param name="separator">Concatenation Separator (Optional), by default is (,)</param>
         /// <returns>A string concat with separator ex."aaa,fff,ggg,hhh"</returns>
-        public static string ArrayStringToString (string[] array, string separator = ",")
+        public static string ArrayStringToString (this string[] array, string separator = ",")
         {
             if (array == null || !array.Any())
                 throw new ArgumentException("Array null or empty");
@@ -34,15 +34,14 @@ namespace MonkeyTools
         {
             if (items == null || !items.Any())
                 return defaultValue;
-            var newlst = (distinct ? items.Select(item => valueFunction(item)).Distinct() : items.Select(item => valueFunction(item))).ToList();
-            var str = new StringBuilder();
-            foreach (var value in newlst)
+            var itemsToConcat = (distinct ? items.Select(item => valueFunction(item)).Distinct() : items.Select(item => valueFunction(item))).ToList();
+            var builder = new StringBuilder();
+            foreach (var value in itemsToConcat)
             {
-                var valuestr = Convert.ToString(value);
-                if (!string.IsNullOrEmpty(valuestr))
-                    str.Append(string.IsNullOrEmpty(format) ? valuestr + separator : string.Format("{0:" + format + "}", value) + separator);
+                if (!string.IsNullOrEmpty(Convert.ToString(value)))
+                    builder.Append(string.IsNullOrEmpty(format) ? Convert.ToString(value) + separator : string.Format("{0:" + format + "}", value) + separator);
             }
-            return string.IsNullOrEmpty(str.ToString()) ? null : str.Remove(str.Length - separator.Length, separator.Length).ToString();
+            return string.IsNullOrEmpty(builder.ToString()) ? null : builder.Remove(builder.Length - separator.Length, separator.Length).ToString();
         }
     }
 }
