@@ -16,5 +16,6 @@
     <Folder Include="Tools\" />
     <Folder Include="Converters\" />
     <Folder Include="TimerMonitor\" />
+    <Folder Include="Generators\" />
   </ItemGroup>
 </Project>

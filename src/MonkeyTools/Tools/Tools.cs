@@ -78,9 +78,7 @@ namespace MonkeyTools
             }
             return "application/octet-stream";
         }
-
-        public static string GetGuid() => Guid.NewGuid().ToString();
-
+        
         public static string RemoveSpecialCharacters(this string text) =>
              !string.IsNullOrEmpty(text) ?
                     Regex.Replace(text, "[^\\d]+", "", RegexOptions.None) :
