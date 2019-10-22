@@ -8,7 +8,7 @@ namespace BurgerMonkeys.Tools.Test
         [Fact(DisplayName = "Test generator string guid")]
         public void GetGuidTest()
         {
-            var guid = MonkeyTools.Generator.GetGuid();
+            var guid = Generator.GetGuid();
             Assert.NotNull(guid);
             Assert.Equal(36, guid.Length);
         }
@@ -20,7 +20,7 @@ namespace BurgerMonkeys.Tools.Test
         [InlineData(10)]
         public void GetIdWithValidLengthTest(int length)
         {
-            var id = MonkeyTools.Generator.GetId(length);
+            var id = Generator.GetId(length);
             Assert.NotNull(id);
             Assert.Equal(length, id.Length);
         }
@@ -32,7 +32,7 @@ namespace BurgerMonkeys.Tools.Test
         [InlineData(0)]
         public void GetIdWithInvalidLengthTest(int length)
         {
-            Action action = () => MonkeyTools.Generator.GetId(length);
+            void action() => Generator.GetId(length);
             Assert.Throws<ArgumentException>(action);
         }
     }
