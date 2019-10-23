@@ -52,14 +52,14 @@ char x = any.ToChar();
 
 - Concat
 ```csharp
-string[] as = { "a", "b", "c" };
+string[] ars = { "a", "b", "c" };
 
 //Default separator
-string x = as.ArrayStringToString();
+string x = ars.ArrayStringToString();
 x = "a,b,c,d"
 
 //With separator
-string x = as.ArrayStringToString("/");
+string x = ars.ArrayStringToString("/");
 x = "a/b/c/d"
 ```
 - Image
