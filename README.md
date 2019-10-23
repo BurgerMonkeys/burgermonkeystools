@@ -54,7 +54,7 @@ char x = any.ToChar();
 ```csharp
 string[] as = { "a", "b", "c" };
 
-//No separator
+//Default separator
 string x = as.ArrayStringToString();
 x = "a,b,c,d"
 
