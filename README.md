@@ -1,10 +1,10 @@
 # BurgerMonkey.Tools
 
-* Converters
-* Generators
-* TimeMonitor
-* Tools
-* Validators
+- [Converters](#converters)
+- [Generators](#generators)
+- [TimeMonitor](#timemonitor)
+- [Tools](#tools)
+- [Validators](#validator)
 
 ## Support
 
