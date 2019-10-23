@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 namespace BurgerMonkeys.Tools
 {
     public static partial class Converter
@@ -24,7 +26,7 @@ namespace BurgerMonkeys.Tools
 
             if (angle && time)
             {
-                string[] at = value.Split(value.Contains("°") ? "°" : "º");
+                var at = value.Split(value.Contains('°') ? '°' : 'º');
                 var a = Convert.ToInt32(at[0]);
 
                 string[] timeArray = GetTimeArray(at[1]);
@@ -74,7 +76,7 @@ namespace BurgerMonkeys.Tools
             }
         }
 
-        static string[] GetTimeArray(string value) => value.Split("'");
+        static string[] GetTimeArray(string value) => value.Split('\'');
 
         /// <summary>
         /// Method Converts a Primitive Object to Angles string
