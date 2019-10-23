@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace MonkeyTools
+namespace BurgerMonkeys.Tools
 {
     public class TimerMonitor : IDisposable
     {

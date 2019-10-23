@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace MonkeyTools
+namespace BurgerMonkeys.Tools
 {
     public  static partial class Generator
     {
