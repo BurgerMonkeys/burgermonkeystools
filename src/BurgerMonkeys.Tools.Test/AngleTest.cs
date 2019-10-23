@@ -13,7 +13,18 @@ namespace BurgerMonkeys.Tools.Test
         [InlineData("0°0'0")]
         public void AngleToDecimal(string angle)
         {
-            var p = angle.AngleToDecimal();
+            if (angle.Equals("90°0'0"))
+            {
+                Assert.Equal(90, angle.AngleToDecimal());
+            }
+            else if (angle.Equals("180°00'00"))
+            {
+                Assert.Equal(180, angle.AngleToDecimal());
+            }
+            else
+            {
+                Assert.Equal(0, angle.AngleToDecimal());
+            }
         }
 
         [Fact]
@@ -32,7 +43,19 @@ namespace BurgerMonkeys.Tools.Test
         [InlineData("0°0'0")]
         public void AngleToString(string angle)
         {
-            var p = angle.AngleToString();
+            var result = angle.AngleToString();
+            if (angle.Equals("90°0'0"))
+            {
+                Assert.Equal(result, angle.AngleToString());
+            }
+            else if (angle.Equals("180°00'00"))
+            {
+                Assert.Equal(result, angle.AngleToString());
+            }
+            else
+            {
+                Assert.Equal(result, angle.AngleToString());
+            }
         }
     }
 }
