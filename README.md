@@ -12,7 +12,7 @@
 
 ## Installation
 
-[NuGet package](//link)
+[NuGet package](https://www.nuget.org/packages/BurgerMonkeys.Tools/)
 
 * In Visual Studio - Tools > NuGet Package Manager > Manage Packages for Solution
 * Select the Browse tab, search for BurguerMonkeys.Tools
