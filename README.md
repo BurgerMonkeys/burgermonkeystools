@@ -129,7 +129,7 @@ angle = "50° 0' 0";
 ### TimeMonitor
 - To measure the execution time of an encoding code, you can use TimeMonitor this way.
 ```csharp
-using(new TimerMonitor("Name to be shown on console")
+using(new TimerMonitor("Tag name")
 {
    for (int i = 0; i < 500; i++)
    {
@@ -138,7 +138,7 @@ using(new TimerMonitor("Name to be shown on console")
 }
 
 //Console
-$Name to be shown on console time elapsed: 100ms
+$"Tag name" time elapsed: 100ms
 ```
 
 ### Validator
