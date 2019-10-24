@@ -1,4 +1,4 @@
-name: ASP.NET Core CI
+name: Tools CI
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Setup .NET Core
+    - name: Setup .NET Standard
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2.108
