@@ -1,0 +1,21 @@
+name: .Net Standard
+
+on: 
+  pull_request:
+    branches: 
+      - develop
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2.108
+    - name: Build with dotnet
+      run: dotnet build --configuration Release
