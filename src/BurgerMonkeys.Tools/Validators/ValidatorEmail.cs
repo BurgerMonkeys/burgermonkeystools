@@ -6,7 +6,7 @@ namespace BurgerMonkeys.Tools
     public static partial class Validator
     {
         /// <summary>
-        /// Mmethod to validate if the string is in valid email format
+        /// Method to validate if the string is in valid email format
         /// </summary>
         /// <param name="email">string to validate</param>
         /// <returns>Returns if the string is in valid email format</returns>
