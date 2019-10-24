@@ -15,8 +15,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Setup .NET Standard
       uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 2.2.108
     - name: Build with dotnet
       working-directory: ./src
       run: dotnet build --configuration Release
