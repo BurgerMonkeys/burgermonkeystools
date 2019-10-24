@@ -5,17 +5,24 @@ on:
     branches: 
       - develop
       - master
+stages:
+    - build
+    - test
 
-jobs:
-  build:
+variables:
+    test: "BurgerMonkeys.Tools.Test"
 
-    runs-on: ubuntu-latest
+before_script:
+    - "cd src"
+    - "dotnet restore"
     
-    steps:
-    - uses: actions/checkout@v1
-    - name: Setup
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 2.2.108
-    - name: Build with dotnet
-      run: dotnet build --configuration Release
+build:
+    stage: build
+    script:
+        - "dotnet build"
+
+test:
+    stage: test
+    script:
+        - "cd $test"
+        - "dotnet test"
