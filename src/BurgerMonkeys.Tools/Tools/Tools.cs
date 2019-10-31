@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -64,7 +63,17 @@ namespace BurgerMonkeys.Tools
         
         public static string RemoveSpecialCharacters(this string text) =>
              !string.IsNullOrEmpty(text) ?
-                    Regex.Replace(text, "[^\\d]+", "", RegexOptions.None) :
+                    Regex.Replace(text, "[^\\d]+", string.Empty, RegexOptions.None) :
+                    string.Empty;
+
+        /// <summary>
+        /// Method to remove all non numeric characters
+        /// </summary>
+        /// <param name="text">String to remove non numeric characters</param>
+        /// <returns>String with only numeric characters</returns>
+        public static string OnlyNumbers(this string text) =>
+            !string.IsNullOrWhiteSpace(text) ?
+            Regex.Replace(text, "[^0-9]", string.Empty, RegexOptions.None) :
                     string.Empty;
     }
 }
