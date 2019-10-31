@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>BurgerMonkeys.Tools</PackageId>
     <PackageVersion>0.0.1</PackageVersion>
@@ -13,7 +13,14 @@
     <PackageProjectUrl>https://github.com/BurgerMonkeys/burgermonkeystools</PackageProjectUrl>
     <Summary>https://github.com/BurgerMonkeys/burgermonkeystools/blob/master/README.md</Summary>
     <Title>BurgerMonkeys.Tools</Title>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
+  
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+
+  <ItemGroup>
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="2.0.54" PrivateAssets="All" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Class1.cs" />
