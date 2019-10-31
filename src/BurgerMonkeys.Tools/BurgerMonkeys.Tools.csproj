@@ -24,5 +24,6 @@
     <Folder Include="TimerMonitor\" />
     <Folder Include="Generators\" />
     <Folder Include="Validators\" />
+    <Folder Include="DocumentValidator\" />
   </ItemGroup>
 </Project>
