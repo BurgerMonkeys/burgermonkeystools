@@ -90,7 +90,7 @@ namespace BurgerMonkeys.Tools
 
             try
             {
-                var v = Convert.ToDecimal(value);
+                var v = (decimal)value.ToString().AngleToDecimal();
                 var isPositive = v >= 0;
                 v = Math.Abs(v);
                 var deg = Math.Floor(v);
