@@ -1,6 +1,6 @@
 # BurgerMonkey.Tools
 
-![Nuget](https://img.shields.io/nuget/v/BurgerMonkeys.Tools)
+[![Nuget](https://img.shields.io/nuget/v/BurgerMonkeys.Tools)](https://www.nuget.org/packages/BurgerMonkeys.Tools/)]
 
 - [Converters](#converters)
 - [Generators](#generators)
