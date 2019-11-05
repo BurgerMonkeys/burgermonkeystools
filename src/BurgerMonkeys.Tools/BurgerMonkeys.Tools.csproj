@@ -4,11 +4,10 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>BurgerMonkeys.Tools</PackageId>
-    <PackageVersion>0.0.1</PackageVersion>
+    <PackageVersion>1.0.0</PackageVersion>
     <Authors>Burger Monkeys</Authors>
     <Description>BurgerMonkeys.Tools is a library with tools to help do many simple things.</Description>
     <Copyright>Burger Monkeys</Copyright>
-    <PackageLicenseUrl>https://github.com/BurgerMonkeys/burgermonkeystools/blob/master/LICENSE</PackageLicenseUrl>
     <Owners>Burger Monkeys</Owners>
     <PackageProjectUrl>https://github.com/BurgerMonkeys/burgermonkeystools</PackageProjectUrl>
     <Summary>https://github.com/BurgerMonkeys/burgermonkeystools/blob/master/README.md</Summary>
