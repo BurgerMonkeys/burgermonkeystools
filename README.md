@@ -1,5 +1,7 @@
 # BurgerMonkey.Tools
 
+![Nuget](https://img.shields.io/nuget/v/BurgerMonkeys.Tools)
+
 - [Converters](#converters)
 - [Generators](#generators)
 - [TimeMonitor](#timemonitor)
