@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -75,5 +76,18 @@ namespace BurgerMonkeys.Tools
             !string.IsNullOrWhiteSpace(text) ?
             Regex.Replace(text, "[^0-9]", string.Empty, RegexOptions.None) :
                     string.Empty;
+
+        /// <summary>
+        /// Method to return the contrast color
+        /// </summary>
+        /// <param name="hexColor">Color to get contrast color</param>
+        /// <returns>Hex color contrast</returns>
+        public static string GetContrastColor(string hexColor)
+        {
+            var color = Color.FromArgb(int.Parse(hexColor.Replace("#", ""),
+                         NumberStyles.AllowHexSpecifier));
+            var contrast = 0.2126 * color.R + 0.7152 * color.G + 0.0722 * color.B;
+            return contrast < 0.5 ? "#FFFFFF" : "#000000";
+        }
     }
 }
