@@ -35,5 +35,25 @@ namespace BurgerMonkeys.Tools.Test
             void action() => Generator.GetId(length);
             Assert.Throws<ArgumentException>(action);
         }
+
+        [Theory(DisplayName = "Test generator name initials with valid names")]
+        [InlineData("John Wick", "JW")]
+        [InlineData("Keanu Reeves", "KR")]
+        [InlineData("Scarlett Johansson", "SJ")]
+        [InlineData("Emilia Clarke", "EC")]
+        public void GetNameInitialsValidTest(string name, string expectedInitials)
+        {
+            var initials = Generator.GetNameInitials(name);
+            Assert.True(expectedInitials == initials);
+        }
+
+        [Theory(DisplayName = "Test generator name initials with invalid names")]
+        [InlineData(null)]
+        [InlineData("")]
+        public void GetNameInitialsInvalidTest(string name)
+        {
+            void action() => Generator.GetNameInitials(name);
+            Assert.Throws<ArgumentException>(action);
+        }
     }
 }
