@@ -42,5 +42,14 @@ namespace BurgerMonkeys.Tools.Test
         {
             Assert.False(url.IsUrl());
         }
+
+        [Theory(DisplayName = "Test ContainsAny")]
+        [InlineData("Test contains any", new string[] { "any", "test" },  true)]
+        [InlineData("Test contains any", new string[] { "options", "22" }, false)]
+        public void ContainsAnyTest(string stringValue, string[] options, bool result)
+        {
+            var itemResult = stringValue.ContainsAny(options);
+            Assert.Equal(itemResult, result);
+        }
     }
 }

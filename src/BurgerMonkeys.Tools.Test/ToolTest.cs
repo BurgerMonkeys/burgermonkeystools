@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
 namespace BurgerMonkeys.Tools.Test
 {
@@ -21,6 +22,26 @@ namespace BurgerMonkeys.Tools.Test
         {
             var generated = color.GetContrastColor();
             Assert.True(contrast == generated);
+        }
+
+        [Theory(DisplayName = "Test repeat with invalid count")]
+        [InlineData(-1)]
+        [InlineData(-2)]
+        [InlineData(-5)]
+        [InlineData(0)]
+        public void RepeatWithInvalidCount(int count)
+        {
+            void action() => "test".Repeat(count);
+            Assert.Throws<ArgumentException>(action);
+        }
+
+        [Theory(DisplayName = "Test repeat with valid parameters")]
+        [InlineData("test", "testtest", 2)]
+        [InlineData("a", "aaaa", 4)]
+        public void RepeatWithValid(string item, string result, int count)
+        {
+            var itemResult = item.Repeat(count);
+            Assert.True(result == itemResult);
         }
     }
 }
