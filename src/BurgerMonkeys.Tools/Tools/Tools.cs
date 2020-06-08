@@ -91,5 +91,22 @@ namespace BurgerMonkeys.Tools
             var contrast = 0.2126 * (color.R / 255d) + 0.7152 * (color.G / 255d) + 0.0722 * (color.B / 255d);
             return contrast < contrastFactor ? "#FFFFFF" : "#000000";
         }
+
+        /// <summary>
+        /// Methods to returns new string with the repeated term with the required amount
+        /// </summary>
+        /// <param name="item">Value to be repeated</param>
+        /// <param name="count">Number of times to be repeated</param>
+        /// <returns></returns>
+        public static string Repeat(this string item, int count)
+        {
+            if (count < 1)
+                throw new System.ArgumentException("Invalid count request");
+
+            var result = new StringBuilder();
+            for (var x = 0; x < count; x++)
+                result.Append(item);
+            return result.ToString();
+        }
     }
 }
