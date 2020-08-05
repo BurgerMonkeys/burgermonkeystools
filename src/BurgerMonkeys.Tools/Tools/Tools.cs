@@ -16,7 +16,6 @@ namespace BurgerMonkeys.Tools
                 .Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
                 .ToArray());
         
-
         public static string IgnoreCaseSensitiveAndAccents(this string stringValue) => stringValue.ToLower().RemoveAccents();
 
         public static string GetContentType(this string filename, bool isExtension = false)
@@ -108,5 +107,21 @@ namespace BurgerMonkeys.Tools
                 result.Append(item);
             return result.ToString();
         }
+
+        /// <summary>
+        /// Return if string is null or contains only white space
+        /// </summary>
+        /// <param name="stringValue">String to validate</param>
+        /// <returns></returns>
+        public static bool IsNullOrWhiteSpace(this string stringValue) =>
+            string.IsNullOrWhiteSpace(stringValue);
+
+        /// <summary>
+        /// Return if string is not null or not only white space
+        /// </summary>
+        /// <param name="stringValue">String to validate</param>
+        /// <returns></returns>
+        public static bool IsNotNullOrWhiteSpace(this string stringValue) =>
+            !string.IsNullOrWhiteSpace(stringValue);
     }
 }
