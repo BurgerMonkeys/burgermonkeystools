@@ -43,5 +43,25 @@ namespace BurgerMonkeys.Tools.Test
             var itemResult = item.Repeat(count);
             Assert.True(result == itemResult);
         }
+
+        [Theory(DisplayName = "Test IsNullOrWhiteSpace")]
+        [InlineData("", true)]
+        [InlineData(null, true)]
+        [InlineData("123", false)]
+        public void IsNullOrWhiteSpaceTest(string stringValue, bool result)
+        {
+            var methodResult = stringValue.IsNullOrWhiteSpace();
+            Assert.Equal(result, methodResult);
+        }
+
+        [Theory(DisplayName = "Test IsNotNullOrWhiteSpace")]
+        [InlineData("", false)]
+        [InlineData(null, false)]
+        [InlineData("123", true)]
+        public void IsNotNullOrWhiteSpaceTest(string stringValue, bool result)
+        {
+            var methodResult = stringValue.IsNotNullOrWhiteSpace();
+            Assert.Equal(result, methodResult);
+        }
     }
 }
