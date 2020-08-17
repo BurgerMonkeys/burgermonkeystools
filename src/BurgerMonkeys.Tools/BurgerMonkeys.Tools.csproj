@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>BurgerMonkeys.Tools</PackageId>
-    <PackageVersion>1.1.2</PackageVersion>
+    <PackageVersion>1.1.3</PackageVersion>
     <Authors>Burger Monkeys</Authors>
     <Description>BurgerMonkeys.Tools is a library with tools to help do many simple things.</Description>
     <Copyright>Burger Monkeys</Copyright>
